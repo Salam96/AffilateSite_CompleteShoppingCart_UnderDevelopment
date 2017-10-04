@@ -53,15 +53,15 @@ if (isset($_SESSION['login'])) {
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" data-toggle="tooltip" title="Main page" <?php echo  "href=../view/clienthomepage.php"?>>Home</a>
+              <a class="nav-link"  <?php echo  "href=../view/clienthomepage.php"?>>Home</a>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tooltip" title="Profile" <?php echo  "href=../view/adminarea.php"?>>Profile</a>
+              <a class="nav-link" <?php echo  "href=../view/adminarea.php" ?>>Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tooltip" title="Log out" <?php echo  "href=../Controller/logout.php"?>>Logout</a>
+                <a class="nav-link"  <?php echo  "href=../Controller/logout.php"?>>Logout</a>
               </li>
           </ul>
         </div>
@@ -82,7 +82,7 @@ if (isset($_SESSION['login'])) {
                 <text x="0" y="100" font-family="Verdana" font-size="55" fill="white" stroke="black" stroke-width="3">
                      Affilate
                </text>
-              </s
+              </svg>
    <?php echo "<h2>Welcome " . $result["FirstName"] ?><h1 class="my-4"></h1></strong>
           <div class="list-group">
             <a href="#" class="list-group-item">Technology</a>
@@ -90,6 +90,7 @@ if (isset($_SESSION['login'])) {
           </div>
 
         </div>
+      </div>
 
         <div class="col-lg-9">
 
@@ -201,9 +202,8 @@ if (isset($_SESSION['login'])) {
                       <label for="image">Image:</label>
                       <input type="text" name="image" class="form-control" id="image" placeholder="Image">
               </div>
-
-                      <input type="button" class="btn btn-outline-success" value="edit" onClick="doedit(this)"></input>
-                      <input type="button" class="btn btn-outline-success" value="cancel" onClick="close()"></input>
+                      <a class="btn" href="#" data-toggle="modal" data-target="#edit" onClick="doedit(this)">Edit</a>
+                      <a class="btn" href="#" data-toggle="modal" data-target="#edit" onClick="close()">Close</a>
             </form>
           </div>
              <p class="card-text"><?php echo $result2['Description']?></p>

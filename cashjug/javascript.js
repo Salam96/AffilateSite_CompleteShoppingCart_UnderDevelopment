@@ -40,12 +40,15 @@ function doedit(form){
           data: $("#editform").serialize(),
           datatype: 'json',
           success: function(data){
-            document.getElementById(edit).style.display = "none";
+        
+            
           }
-
+            
         });
+
       }
 function close(){
         document.getElementById('#edit').style.display = "none";
+        location.reload();
          
       }
