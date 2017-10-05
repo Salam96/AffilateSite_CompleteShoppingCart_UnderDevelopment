@@ -5,8 +5,8 @@ ob_start();?>
 <?php 
 
 if (isset($_SESSION['login']) == true) {
-    Include_once('../crud/db.php'); 
-  Include_once('../controller/show_client_page.php'); 
+    include_once('../crud/db.php'); 
+  include_once('../controller/show_client_page.php'); 
 
   
 } else{
