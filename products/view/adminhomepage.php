@@ -61,7 +61,7 @@ if (isset($_SESSION['login'])) {
               <a class="nav-link" <?php echo  "href=../view/adminarea.php" ?>>Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  <?php echo  "href=../Controller/logout.php"?>>Logout</a>
+                <a class="nav-link"  <?php echo  "href=../controller/logout.php"?>>Logout</a>
               </li>
           </ul>
         </div>

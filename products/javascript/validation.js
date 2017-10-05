@@ -40,3 +40,9 @@ function termsandconditions()
                         }
 
   }
+        
+function savedata() { 
+  var input = document.getElementById("fname");
+  sessionStorage.setItem("fname", input.value);
+  return input.value = sessionStorage.getItem("fname", input.value);
+} 
