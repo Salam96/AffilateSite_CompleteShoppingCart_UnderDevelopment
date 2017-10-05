@@ -1,13 +1,3 @@
-if (window.sessionStorage){
-    var usern=document.getElementById("username")
-    if (sessionStorage.usern){ //if there is data stored for the target textarea
-        usern.value=sessionStorage.usern //recall it upon refresh or crash
-    }
-    
-    usern.onkeyup=function(e){
-        sessionStorage.usern=this.value //save contents of textarea as user types
-    }
-}
 window.onload = function() {
     var input_fields = document.getElementsByTagName('input');
     for(var i=0;i<input_fields.length;i++) {

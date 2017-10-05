@@ -67,3 +67,8 @@ window.onload = function() {
         }
     }
 }
+
+
+ function done(){
+    document.getElementById("demo").innerHTML = "Account has been created, please log on";
+  }
