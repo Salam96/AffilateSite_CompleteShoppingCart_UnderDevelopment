@@ -25,7 +25,7 @@ session_start();
 															}
 																	else  {
 																		$error = "There is no accopunt associated with this username";
-										            						header('location:../view/material-login-form/index.html?'. $error);
+										            						header('location:../view/material-login-form/index.php?'. $error);
 										      								session_destroy();		
 										    								die();
 																	}

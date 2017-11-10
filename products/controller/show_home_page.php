@@ -8,17 +8,15 @@ Include_once('../crud/db.php');
                               $sql2="SELECT * FROM product";
                               $res = $conn->prepare($sql2);      
                                                 $res->execute();
-                                               // while ($result2 = $res->fetch(PDO::FETCH_ASSOC)):
-                                                
-                                            //    endwhile;
              
                                               
                                                                              
                 }else {
 
                       session_destroy();
-                      header('location:index.html');
+                      header('location:index.php');
                       
                 }
+                
 
  ?>

@@ -18,7 +18,7 @@ include_once('../crud/db.php');
 //include_once("../view/clientarea.php");
                                                    
                     }else {
-
+                                  unset($_SESSION['cart_items']);
                                    session_destroy();
                                       header('location:../view/index.html');
            

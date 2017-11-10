@@ -21,13 +21,11 @@ if (isset($_POST)) {
 		 $Model=$_POST['m_del'];
 		 $Quantity=$_POST['quantity'];
 		 $Price=$_POST['price'];
-		 $Image=$_POST['image'];
 		 $Description= $_POST['description'];
-		$sql = "UPDATE product SET ProductName= '$productname', Brand='$Brand', Model='$Model', Quantity='$Quantity', Price='$Price', Image='$Image', Description='$Description' WHERE ProductID =" . $_POST['primarykey'];
+		$sql = "UPDATE product SET ProductName= '$productname', Brand='$Brand', Model='$Model', Quantity='$Quantity', Price='$Price', Description='$Description' WHERE ProductID =" . $_POST['primarykey'];
 		$res = $conn->prepare($sql);
 		$res->execute();
 		$result = $res->fetch(PDO::FETCH_ASSOC);
-		//echo json_encode(array('all', 'good'));
 
 
 	}

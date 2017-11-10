@@ -2,19 +2,19 @@
 session_start();
 ob_start();?>
 <?php 
-if (isset($_SESSION['login'])) {
-		Include_once('../crud/db.php'); 
-	  Include_once('../controller/show_home_page.php'); 
-	
-} else{
-	logout();
-	die();
-	}
-	function logout(){
-		header('location:index.html');
-		ob_end_flush();
-		die();
-	}
+
+        if (isset($_SESSION['login'])) {
+              Include_once('../crud/db.php'); 
+              Include_once('../controller/show_home_page.php'); 
+        } else{
+         logout();
+                die();
+          }
+    function logout(){
+    header('location:index.php');
+    ob_end_flush();
+    die();
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,12 +24,13 @@ if (isset($_SESSION['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Shop Homepage - Admin</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="css/modelCss.css">
     <style type="text/css">
-      #model{
+      #model2{
         display: none;
       }
     </style>
@@ -40,20 +41,20 @@ if (isset($_SESSION['login'])) {
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
-    <script src="../javascript.js"></script>
+    <script src="../javascript/javascript.js"></script>
   </head>
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">My logo goes here</a>
+        <img src="../images/widgets.png">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link"  <?php echo  "href=../view/clienthomepage.php"?>>Home</a>
+              <a class="nav-link"  <?php echo  "href=../view/adminhomepage.php"?>>Home</a>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -73,25 +74,24 @@ if (isset($_SESSION['login'])) {
     <div class="container">
 
       <div class="row">
-
+        <!-- /.col-lg-3 -->
         <div class="col-lg-3">
-           <div><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-
-                  <path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/>
-                 <polygon points="120,0 140,125 0,25" fill="white"/>
-                <text x="0" y="100" font-family="Verdana" font-size="55" fill="white" stroke="black" stroke-width="3">
-                     Affilate
-               </text>
-              </svg>
-   <?php echo "<h2>Welcome " . $result["FirstName"] ?><h1 class="my-4"></h1></strong>
-          <div class="list-group">
-            <a href="#" class="list-group-item">Technology</a>
-            <a href="#" class="list-group-item">Accessories</a>
-          </div>
-
-        </div>
-      </div>
-
+           <div>
+                  <svg id="mySvg" style="transform-origin:0% 50% 0"  xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/>
+                        <polygon points="120,0 140,125 0,25" fill="white"/>
+                        <text x="0" y="100" font-family="Verdana" font-size="55" fill="white" stroke="black" stroke-width="3">
+                                     widgets
+                        </text>
+                  </svg>
+          </div> 
+                 <?php echo "<h2>Welcome " . $result["FirstName"] ?><h1 class="my-4"></h1></strong>
+                        <div class="list-group">
+                          <a href="#" class="list-group-item">Technology</a>
+                          <a href="#" class="list-group-item">Accessories</a>
+                        </div>
+           </div>
+          <!-- /.col-lg-9 -->
         <div class="col-lg-9">
 
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -125,34 +125,36 @@ if (isset($_SESSION['login'])) {
               ?>                                  
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <div class="single_image" href="<?php echo $result2['Image']?>"><img class="card-img-top" src="<?php echo $result2['Image']?>" alt=""></div>
+                <div class="single_image" href="../images/<?php echo $result2['Image']; ?>"><img class="card-img-top" src="../images/<?php echo $result2['Image']; ?>"  width="100" height="200" ></div>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#"><?php echo $result2['ProductName']?></a>
                   </h4>
                   <h5>$<?php echo $result2['Price']?></h5>
-                  <p class="card-text"><?php echo $result2['Description']?></p>
+                  <p class="card-text"><?php echo $result2['Brand']?></p>
+                  <p class="card-text"><?php echo $result2['Quantity']?> Left <span class="text-danger"> -FREE SHIPPING</span></p></p>
                 </div>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Read more
-                  </button>                  
+                 <!-- Button trigger modal -->
+                  
+              <?php  echo '<a class="btn btn-info" href="#" data-toggle="modal" data-target="#desc" onClick= ShowDesc(' . $result2['ProductID'] . ')>Brife Description</a>'?>
+                <div class="modal fade" id="desc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                         <div class="modal-dialog" role="document">
+                             <div class="modal-content">
+                                  <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal2" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                       <h4 class="modal-title" id="myModalLabel">Description</h4>
+                                  </div>
+                            <div class="modal-body">
+                         <div id="info"></div>
+                                   
+                            </div>
+                          </div>
+                        </div>
+                </div>
                   <?php  echo '<a class="btn" href="#" data-toggle="modal" data-target="#edit" onClick= editProduct(' . $result2['ProductID'] . ')>Edit</a>'?>
-                    <a class="btn" href='../crud/deleteProduct.php?action_type=delete&ProductID=<?php echo $result2['ProductID'];?>' onclick="return confirm('Are you sure?')">Delete</a>
-                  <!-- Modal -->
-                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Product description</h4>
+                    <a class="btn btn-danger" href='../crud/deleteProduct.php?action_type=delete&ProductID=<?php echo $result2['ProductID'];?>' onclick="return confirm('Are you sure?')">Delete</a>
+                          
                         </div>
-                        <div class="modal-body">
-                         <p class="card-text"><?php echo $result2['Description']?></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
             </div>
              <?php }
                     endwhile;  ?>
@@ -162,7 +164,9 @@ if (isset($_SESSION['login'])) {
       <!-- /.row -->
 
     </div>
+
     <!-- /.container -->
+    
     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
          <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -171,6 +175,7 @@ if (isset($_SESSION['login'])) {
               <h4 class="modal-title" id="myModalLabel">Edit form</h4>
             </div>
             <div class="modal-body">
+
               <div id="model">
             <form id="editform">
                     <input type="hidden" name="primarykey" class="form-control" id="primarykey">
@@ -195,40 +200,33 @@ if (isset($_SESSION['login'])) {
                       <input type="text" name="price" class="form-control" id="price" placeholder="Price">
               </div>
               <div class="form-group">
-                      <label for="price">Description:</label>
+                      <label for="Description">Description:</label>
                       <input type="text" name="description" class="form-control" id="description" placeholder="Description">
               </div>
-              <div class="form-group">
-                      <label for="image">Image:</label>
-                      <input type="text" name="image" class="form-control" id="image" placeholder="Image">
-              </div>
+             
                       <a class="btn" href="#" data-toggle="modal" data-target="#edit" onClick="doedit(this)">Edit</a>
                       <a class="btn" href="#" data-toggle="modal" data-target="#edit" onClick="close()">Close</a>
             </form>
           </div>
+         
              <p class="card-text"><?php echo $result2['Description']?></p>
             </div>
           </div>
         </div>
       </div>
-    <!-- Button trigger modal -->
+   
     <!-- Footer -->
-          <footer class="py-5 bg-dark">
-            <div class="container"> 
-             <?php  echo var_dump($result); 
-              echo print_r($result);
-               var_dump($result);?> 
-           <?php  ?>
-              <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-            </div>
-          </footer>
+          <?php include'footer.php'; ?>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+     <!-- FancyBox JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.js"></script>
+     <!-- SVG JavaScript -->
+    <script src="https://cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
+    <script type="text/javascript" src="../JavaScript/svg.js"></script>
 
   </body>
 
 </html>
- ?>

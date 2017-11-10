@@ -28,7 +28,7 @@ if (isset($_SESSION['login'])) {
                                         $result = $res->fetch(PDO::FETCH_ASSOC);
                         }  else {
                             session_destroy();
-                            header('location:index.html');
+                            header('location:index.php');
                           }
                           
 
@@ -89,7 +89,7 @@ if (isset($_SESSION['login'])) {
           die();
   }
 function logout(){
-          header('location:../view/index.html');
+          header('location:../view/index.php');
           ob_end_flush();
           die();
   }
@@ -109,7 +109,7 @@ function logout(){
 </head>
 <body>
 <div class="container">
-        <h2><strong><?php echo $result['FirstName']; ?></strong>, Please make sure your information is up-to-date</h2> 
+        <h2><strong><?php echo $result['FirstName']; ?></strong>, Please make sure your information is correct</h2> 
     <form method="post" class="form-horizontal">
       <div class="form-group">
         <label class="control-label col-sm-2" for="firstname">Firstname:</label>
@@ -179,17 +179,16 @@ function logout(){
         <input type="text" class="form-control" name="state"  value="<?php echo $result2['state']; ?>">
         </div>
       </div>
-      <div class="btn btn-primary btn-block">
+      <div class="btn  btn-block">
       <button type="submit" name="cancel" value"add" class="btn btn-default">Cancel</button>
       </div>  
-        <div class="btn btn-primary btn-block">
+        <div class="btn  btn-block">
       <button type="submit" name="send" value"add" class="btn btn-default">Submit</button>
       </div>  
        
 
     </form>
     </div>
-        <footer> echo $_SESSION['CustomerID']; <?php echo $_SERVER['QUERY_STRING']?>  <?php  echo $sql2 ;?>  <?php  echo $sql3  ;?>
-        <div> <?php  echo session_id();?></div> </footer>
+        <?php include'../view/footer.php'; ?>
 </body>
 </html>

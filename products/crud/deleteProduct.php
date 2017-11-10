@@ -1,10 +1,7 @@
 <?php 
  session_start();       
- 		if ($_REQUEST['action_type'] =='update'){
-
-
+ 		if ($_REQUEST['action_type'] =='delete'){
  			include_once('db.php');
-
              $sql="DELETE FROM `product` WHERE ProductID =" . $_GET['ProductID']; 
                      $res = $conn->prepare($sql); 
                      $res->execute();

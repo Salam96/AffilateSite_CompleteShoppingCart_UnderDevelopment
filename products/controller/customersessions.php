@@ -13,7 +13,9 @@ session_start();
 
 
 	else {
+									unset($_SESSION['cart_items']);
                                    session_destroy();
+
                                    header('location:index.php');
                                    die();
            }

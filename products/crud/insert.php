@@ -25,8 +25,10 @@
 																				$res->execute(array($postcode,$suburb,$state));
 																				$POST_codeID = $conn-> lastInsertId();
 
-																				$sql2 ="INSERT INTO login (LoginID,UserName,Password,UserType) VALUES (DEFAULT,?,?,'Customer');";		
+																				$sql2 ="INSERT INTO login (LoginID,UserName,Password,UserType) VALUES (DEFAULT,?,?,'Customer');";
+																				
 																				$res = $conn->prepare($sql2);
+																				
    																				$res->execute(array($username,$password));
 																				$Login_ID = $conn-> lastInsertId();
 

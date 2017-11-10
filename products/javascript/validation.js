@@ -23,6 +23,7 @@ function checkField(a_field) {
     } else {
         a_field.style.background = 'red'; 
         a_field.nextElementSibling.innerHTML = a_field.title;
+        
     }   
 }
 function termsandconditions()
@@ -38,9 +39,12 @@ function termsandconditions()
                               document.getElementById('f_submission').style.background = 'lightgrey'
 
                         }
-
   }
-        
+
+
+
+  // the form wouldn't allow you to submit unless all fields are correctly filed out, so there is no need for this but i have done
+  //it to demonstrate it
 function savedata() { 
   var input = document.getElementById("fname");
   sessionStorage.setItem("fname", input.value);
