@@ -7,4 +7,4 @@ if ($_SERVER["REQUEST_METHOD"]) {
 }
 else{echo "wrong";}
 
- ?>
+?>

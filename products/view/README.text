@@ -1,26 +1,17 @@
 // 
 
 
-Complete CRUD is created as per request
-Customers should be able to register and navigate thr the website
-Insert does work on the three tables at the same time, login, customer and postcode
-Delete and update work as well, all tables get updated at the same time
+Admin login
+
+username salam
+Pass 123456
 
 
-when a regular customer signs in they get loged in but there is an issue with retrieving their info, it will be fixed later, however, when someone signs up their info is populated thr the website
+Client login
 
-database name is shoppingcart
-debuggin is in the footer but one of them is saturated so it may not be clear to read!
 
-CUSTOMER ACCT Andy with the pass 1
-ADMIN ACCT fadi94 with the pass 22322232
-
-Client side is done for both,
-
-Ajax is done for the edit for each item
-Items images are done using fancy box
-Sag is the Affiliate with the shopping cart sample
-Model is done for the description of each item
+Username AlSharma
+Password 22322232
 
 Github acct is https://github.com/SALAM1996/AffilateSite
 

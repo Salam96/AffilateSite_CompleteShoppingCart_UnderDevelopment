@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 10, 2017 at 03:37 PM
+-- Generation Time: Nov 13, 2017 at 11:09 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.0.15
 
@@ -37,13 +37,12 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`CustomerID`, `FirstName`, `LastName`, `DateOfBirth`, `email`, `addressone`, `addresstwo`, `LoginID`, `postcodeID`) VALUES
-(171, 'salam', 'bahja', '0000-00-00', 'sdad@as.com', 'dasdsad', 'dads', 144, 262),
-(183, 'sandy', 'antar', '1993-12-20', 'sandy@sandy.com', 'sdasda', 'sfsafsafsadasd', 156, 274),
-(184, 'fadu', 'sdasd', '0000-00-00', 'sdasda@sdad.com', 'dada', 'dsadad', 157, 275),
-(185, 'FADI', 'BAHJA', '1008-12-10', 'fadi@fadi.com', '2 nicol way', 'brendale', 158, 276),
-(186, 'sdasdad', 'sdasd', '1994-12-12', 'sa@sa.com', 'sdasd', 'dasdasd', 159, 277),
-(187, 'salam', 'alsharma', '0000-00-00', 'salam@salam.com', 'sdasd', 'dsad', 160, 278),
-(192, 'ali', 'ali', '1994-11-30', 'zx@sa.com', 'sdad', 'sdad', 145, 266);
+(186, 'sdasdad', 'sam', '1993-12-12', 'sa@sa.com', '2 nicol way', 'dasdasdsdad', 159, 277),
+(187, 'salam', 'alsharma', '1111-11-07', 'salam@salam.com', 'sdasd', 'dsad', 160, 278),
+(216, 'sasa', 'sasas', '1222-12-12', 'sad@sdad.com', 'sdad', 'sdad', 189, 315),
+(218, 'sdasd', 'sdasda', '1996-02-05', 'sda@sda.co', 'sdasdad', 'sdasd', 192, 318),
+(219, 'sdasd', 'sdaddsad', '1996-12-12', 'sdad@sdad.com', 'sdadsa', 'sdadsa', 193, 319),
+(220, 'sdads', 'sdada', '1996-12-12', 'saddsa@sdad.com', 'sdad', 'sdad', 194, 320);
 
 --
 -- Triggers `customer`
@@ -68,7 +67,7 @@ DELIMITER ;
 CREATE TABLE `login` (
   `LoginID` int(10) NOT NULL,
   `UserName` varchar(255) NOT NULL,
-  `Password` int(10) NOT NULL,
+  `Password` varchar(255) NOT NULL,
   `UserType` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -77,18 +76,12 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`LoginID`, `UserName`, `Password`, `UserType`) VALUES
-(144, 'dads', 132321, 'Customer'),
-(145, 'dadsad', 1, 'Customer'),
-(148, 'fadi94', 22322232, 'Admin'),
-(152, 'dadsad', 2113213, 'Customer'),
-(153, 'sdad', 22322232, 'Customer'),
-(155, 'ali', 22322232, 'Customer'),
-(156, 'sandy', 123456, 'Customer'),
-(157, 'user', 123456, 'Customer'),
-(158, 'fadi', 22322232, 'Customer'),
-(159, 'AlSharma', 22322232, 'Customer'),
-(160, 'salam', 123456, 'Customer'),
-(168, 'admin', 213231, 'Customer');
+(159, 'AlSharma', '22322232', 'Customer'),
+(160, 'salam', '123456', 'Admin'),
+(189, 'fatin', '212121', 'Customer'),
+(192, 'sdasdad', '123456', 'Customer'),
+(193, 'sadsd', '123456', 'Customer'),
+(194, 'adad', 'sdadadsad33213', 'Customer');
 
 -- --------------------------------------------------------
 
@@ -101,76 +94,6 @@ CREATE TABLE `orders` (
   `CustomerID` int(10) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`OrderID`, `CustomerID`, `date`) VALUES
-(538, 183, '2017-10-20 07:55:44'),
-(539, 183, '2017-10-20 09:14:51'),
-(540, 183, '2017-10-20 09:15:59'),
-(541, 185, '2017-10-20 10:17:09'),
-(542, 185, '2017-10-20 12:54:47'),
-(543, 185, '2017-10-20 13:02:16'),
-(544, 185, '2017-10-20 13:05:14'),
-(545, 185, '2017-10-20 13:09:20'),
-(546, 185, '2017-10-20 13:45:00'),
-(547, 186, '2017-10-20 14:10:35'),
-(548, 186, '2017-10-20 14:33:00'),
-(549, 186, '2017-10-20 14:37:20'),
-(550, 186, '2017-10-22 10:44:08'),
-(551, 183, '2017-10-23 01:38:14'),
-(552, 183, '2017-10-23 01:38:32'),
-(553, 187, '2017-10-24 08:56:00'),
-(554, 187, '2017-10-24 08:56:20'),
-(555, 187, '2017-10-24 14:00:43'),
-(556, 186, '2017-10-25 05:43:31'),
-(557, 186, '2017-10-25 05:43:49'),
-(558, 186, '2017-10-30 06:47:36'),
-(559, 186, '2017-11-06 01:37:45'),
-(560, 186, '2017-11-06 01:53:38'),
-(561, 186, '2017-11-06 03:29:04'),
-(562, 186, '2017-11-06 03:35:33'),
-(563, 186, '2017-11-06 03:51:59'),
-(564, 186, '2017-11-06 03:58:23'),
-(565, 186, '2017-11-06 04:26:43'),
-(566, 186, '2017-11-06 04:31:20'),
-(567, 186, '2017-11-06 04:35:13'),
-(568, 186, '2017-11-06 04:38:29'),
-(569, 186, '2017-11-06 04:38:34'),
-(570, 186, '2017-11-06 05:11:16'),
-(571, 186, '2017-11-06 05:14:16'),
-(572, 186, '2017-11-06 05:17:45'),
-(573, 186, '2017-11-06 12:16:33'),
-(574, 186, '2017-11-06 13:02:51'),
-(575, 186, '2017-11-06 13:09:11'),
-(576, 186, '2017-11-06 13:12:19'),
-(577, 186, '2017-11-06 13:59:38'),
-(578, 186, '2017-11-06 14:17:46'),
-(579, 186, '2017-11-06 14:48:09'),
-(580, 186, '2017-11-06 14:50:29'),
-(581, 186, '2017-11-06 14:53:32'),
-(582, 186, '2017-11-06 14:59:15'),
-(583, 186, '2017-11-06 15:10:28'),
-(584, 186, '2017-11-06 15:22:47'),
-(585, 186, '2017-11-06 15:35:19'),
-(586, 186, '2017-11-06 15:39:44'),
-(587, 186, '2017-11-07 03:01:40'),
-(588, 186, '2017-11-07 03:03:13'),
-(589, 186, '2017-11-07 03:06:51'),
-(590, 186, '2017-11-07 03:14:45'),
-(591, 186, '2017-11-07 03:15:13'),
-(592, 186, '2017-11-07 03:15:24'),
-(593, 186, '2017-11-07 03:36:07'),
-(594, 186, '2017-11-07 03:36:45'),
-(595, 186, '2017-11-07 03:41:42'),
-(596, 186, '2017-11-07 03:45:13'),
-(597, 186, '2017-11-07 03:49:26'),
-(598, 186, '2017-11-07 03:50:14'),
-(599, 186, '2017-11-07 03:54:06'),
-(600, 186, '2017-11-08 02:31:18'),
-(601, 186, '2017-11-09 04:14:52');
 
 -- --------------------------------------------------------
 
@@ -229,7 +152,7 @@ INSERT INTO `postcodeinfo` (`postcodeID`, `postcode`, `suburb`, `state`) VALUES
 (274, 4500, 'brendale', 'qldd'),
 (275, 1234, 'addad', 'dsadas'),
 (276, 4500, 'Brendale', 'qldd'),
-(277, 4500, 'daddasd', 'dasdasd'),
+(277, 2222, 'brendale', 'dasdasd'),
 (278, 4500, 'brendale', 'cldd'),
 (279, 2312, 'sdad', 'dads'),
 (280, 2132, 'DSADSD', 'SDASDA'),
@@ -237,7 +160,28 @@ INSERT INTO `postcodeinfo` (`postcodeID`, `postcode`, `suburb`, `state`) VALUES
 (282, 3444, 'ssss', 'aaae'),
 (283, 3444, 'ssss', 'aaae'),
 (284, 3444, 'ssss', 'aaae'),
-(296, 2313, 'sdadad', 'sdad');
+(296, 2313, 'sdadad', 'sdad'),
+(297, 2323, 'sdadad', 'sdada'),
+(298, 2313, 'sdadad', 'qld'),
+(299, 4444, 'fsfsfs', 'dfsf'),
+(300, 2332, 'dsadad', 'dadad'),
+(301, 2313, 'adad', 'sdada'),
+(302, 2222, 'sdad', 'dadad'),
+(303, 2121, 'dadad', 'dsadad'),
+(305, 2121, 'sasas', 'aadad'),
+(306, 2222, 'dadad', 'sdasda'),
+(308, 2132, 'dasdad', 'dada'),
+(309, 3323, 'sadad', 'sdada'),
+(310, 2313, 'sdadas', 'sdasda'),
+(311, 2132, 'sdada', 'sdada'),
+(312, 2132, 'sdada', 'sdada'),
+(313, 2121, 'sdada', 'sadad'),
+(314, 2323, 'sdadd', 'sdad'),
+(315, 1231, 'asdsad', 'sdadd'),
+(316, 2132, 'sdadsasd', 'dsasda'),
+(318, 2313, 'sdasd', 'sdada'),
+(319, 2132, 'sdad', 'dsadad'),
+(320, 2133, 'sdadad', 'dadad');
 
 -- --------------------------------------------------------
 
@@ -287,24 +231,6 @@ CREATE TABLE `salesrecords` (
   `CustomerID` int(10) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `salesrecords`
---
-
-INSERT INTO `salesrecords` (`SalesID`, `CustomerID`, `date`) VALUES
-(4, 183, '2017-10-20 04:34:15'),
-(5, 183, '2017-10-20 04:34:16'),
-(6, 183, '2017-10-20 04:34:18'),
-(7, 183, '2017-10-20 04:34:30'),
-(8, 183, '2017-10-20 04:34:31'),
-(9, 183, '2017-10-20 04:34:31'),
-(10, 183, '2017-10-20 04:34:31'),
-(11, 183, '2017-10-20 04:34:36'),
-(12, 183, '2017-10-20 04:34:42'),
-(13, 183, '2017-10-20 04:34:43'),
-(14, 183, '2017-10-20 04:34:43'),
-(15, 183, '2017-10-20 04:35:42');
 
 -- --------------------------------------------------------
 
@@ -401,12 +327,12 @@ ALTER TABLE `shoppingcart`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `CustomerID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `LoginID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `LoginID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
 --
 -- AUTO_INCREMENT for table `orders`
 --
@@ -421,12 +347,12 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `postcodeinfo`
 --
 ALTER TABLE `postcodeinfo`
-  MODIFY `postcodeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=297;
+  MODIFY `postcodeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=321;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `salesrecords`
 --
