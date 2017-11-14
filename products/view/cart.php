@@ -40,8 +40,6 @@ function logout(){
   <link rel="stylesheet" type="text/css" href="css/menu_css.css">
   <link rel="stylesheet" type="text/css" href="css/CartCSS.css">
 
-
-  <link rel="stylesheet" href="fancybox/dist/jquery.fancybox.css" type="text/css" media="screen" />
   <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -129,7 +127,7 @@ function logout(){
 
                     ?>
                     <tr>
-                      <td> <div class="single_image" href="<?php echo $result['Image']?>"><img src="../images/<?php echo $result['Image']; ?>"  width="100" height="50" ></div></td>
+                      <td> <div class="single_image" href="../images/<?php echo $result['Image']; ?>"><img src="../images/<?php echo $result['Image']; ?>"  width="100" height="50" ></div></td>
                       <td><a href="item.html"><?php echo $result['ProductName']  ?></a></td>
                       <td>$<?php echo $result['Price']  ?></td>
                       <td>
@@ -210,6 +208,7 @@ function logout(){
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/popper/popper.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.js"></script>
 
 </body>
