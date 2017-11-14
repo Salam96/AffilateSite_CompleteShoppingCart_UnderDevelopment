@@ -6,7 +6,7 @@ if(isset($_GET['page'])){
 		include"../view/users_accounts.php";
 		break;
 		case 'add_product':
-		include"../view/admin_control.php";
+		include"../view/admin_control.html";
 		break;
 		
 		default:
