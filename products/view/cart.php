@@ -53,7 +53,7 @@ function logout(){
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <img src="../images/widgets.png">
+      <a href="clienthomepage.php"><img src="../images/widgets.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -127,7 +127,7 @@ function logout(){
 
                     ?>
                     <tr>
-                      <td> <div class="single_image" href="../images/<?php echo $result['Image']; ?>"><img src="../images/<?php echo $result['Image']; ?>"  width="100" height="50" ></div></td>
+                      <td> <div class="single_image" href="../images/<?php echo $result['Image']; ?>"><img src="../images/<?php echo $result['Image']; ?>"  alt="product image" width="100" height="50" ></div></td>
                       <td><a href="item.html"><?php echo $result['ProductName']  ?></a></td>
                       <td>$<?php echo $result['Price']  ?></td>
                       <td>

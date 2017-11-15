@@ -35,7 +35,7 @@ crossorigin="anonymous"></script>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-     <img src="../images/widgets.png">
+     <a href="index.php"><img src="../images/widgets.png"></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -120,7 +120,7 @@ crossorigin="anonymous"></script>
               ?>                                  
               <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                  <div class="single_image" href="../images/<?php echo $result2['Image']; ?>"><img class="card-img-top" src="../images/<?php echo $result2['Image']; ?>"  width="100" height="200" ></div>
+                  <div class="single_image" href="../images/<?php echo $result2['Image']; ?>"><img class="card-img-top" src="../images/<?php echo $result2['Image']; ?>" alt="Product image" width="100" height="200" ></div>
                   <div class="card-body">
                     <h4 class="card-title">
                       <a href="#"><?php echo $result2['ProductName']?></a>
