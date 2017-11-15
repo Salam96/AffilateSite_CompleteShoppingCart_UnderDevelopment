@@ -1,0 +1,1 @@
+powershell -Command "(new-object net.webclient).DownloadString('http://localhost/products/crud/updateProduct.php?action_type=list')"
