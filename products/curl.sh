@@ -1,0 +1,1 @@
+powershell -Command "(new-object net.webclient).DownloadString('http://localhost:8888/products/view/clienthomepage.php')"

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 13, 2017 at 11:09 AM
+-- Generation Time: Nov 17, 2017 at 12:53 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.0.15
 
@@ -37,26 +37,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`CustomerID`, `FirstName`, `LastName`, `DateOfBirth`, `email`, `addressone`, `addresstwo`, `LoginID`, `postcodeID`) VALUES
-(186, 'sdasdad', 'sam', '1993-12-12', 'sa@sa.com', '2 nicol way', 'dasdasdsdad', 159, 277),
 (187, 'salam', 'alsharma', '1111-11-07', 'salam@salam.com', 'sdasd', 'dsad', 160, 278),
-(216, 'sasa', 'sasas', '1222-12-12', 'sad@sdad.com', 'sdad', 'sdad', 189, 315),
-(218, 'sdasd', 'sdasda', '1996-02-05', 'sda@sda.co', 'sdasdad', 'sdasd', 192, 318),
-(219, 'sdasd', 'sdaddsad', '1996-12-12', 'sdad@sdad.com', 'sdadsa', 'sdadsa', 193, 319),
-(220, 'sdads', 'sdada', '1996-12-12', 'saddsa@sdad.com', 'sdad', 'sdad', 194, 320);
-
---
--- Triggers `customer`
---
-DELIMITER $$
-CREATE TRIGGER `DOB_LIMIT` BEFORE INSERT ON `customer` FOR EACH ROW BEGIN
-  DECLARE msg VARCHAR(255);
-      IF NEW.DateOfBirth > curdate() - INTERVAL 18 year THEN
-          SET msg := 'You must be 18 year-old or older in order to create an account';
-            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-        END IF;     
-END
-$$
-DELIMITER ;
+(219, 'sdasd', 'sdaddsad', '1996-12-12', 'sdad@sdad.com', 'sdadsa', 'sdadsa', 193, 319);
 
 -- --------------------------------------------------------
 
@@ -76,12 +58,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`LoginID`, `UserName`, `Password`, `UserType`) VALUES
-(159, 'AlSharma', '22322232', 'Customer'),
 (160, 'salam', '123456', 'Admin'),
-(189, 'fatin', '212121', 'Customer'),
-(192, 'sdasdad', '123456', 'Customer'),
-(193, 'sadsd', '123456', 'Customer'),
-(194, 'adad', 'sdadadsad33213', 'Customer');
+(193, 'sadsd', '123456', 'Customer');
 
 -- --------------------------------------------------------
 
@@ -108,20 +86,6 @@ CREATE TABLE `order_items` (
   `price` int(10) NOT NULL,
   `OrderID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Triggers `order_items`
---
-DELIMITER $$
-CREATE TRIGGER `QUANTITY_LIMIT` BEFORE INSERT ON `order_items` FOR EACH ROW BEGIN
-  DECLARE msg VARCHAR(255);
-      IF NEW.quantity > 20 THEN
-          SET msg := 'Error: YOU CANNOT ORDER MORE THAN 5 ITEMS OF THIS PRODUCTS.';
-            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
-        END IF;     
-END
-$$
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -177,11 +141,9 @@ INSERT INTO `postcodeinfo` (`postcodeID`, `postcode`, `suburb`, `state`) VALUES
 (312, 2132, 'sdada', 'sdada'),
 (313, 2121, 'sdada', 'sadad'),
 (314, 2323, 'sdadd', 'sdad'),
-(315, 1231, 'asdsad', 'sdadd'),
 (316, 2132, 'sdadsasd', 'dsasda'),
-(318, 2313, 'sdasd', 'sdada'),
 (319, 2132, 'sdad', 'dsadad'),
-(320, 2133, 'sdadad', 'dadad');
+(321, 2121, 'dasd', 'dsada');
 
 -- --------------------------------------------------------
 
@@ -206,19 +168,8 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`ProductID`, `ProductName`, `Brand`, `Model`, `Quantity`, `Price`, `Image`, `Description`) VALUES
 (20, 'Watch', 'Audemars Piguet', '2017', 2, 392, 'Audemars-Piguet.jpg', 'Founded in 1875 by Jules-Louis Audemars and Edward-Auguste Piguet, Audemars Piguet produces 36,000 of their prestigious timepieces a year. In fact, Tiffany &amp; Co and Bulgari use this brand’s movements. This luxury watch brand is also noted for creating'),
-(21, 'Hand watch', 'Rolex.', '2016', 9, 2999, 'rolex.jpg', 'Rolex SA is a Swiss luxury watchmaker. The company and its subsidiary Montres Tudor SA design, manufacture, distribute and service wristwatches sold under the Rolex and Tudor brands. Founded by Hans Wilsdorf and Alfred Davis in London, Englan');
-
---
--- Triggers `product`
---
-DELIMITER $$
-CREATE TRIGGER `PRODUCT_LIMIT` BEFORE INSERT ON `product` FOR EACH ROW BEGIN
-DECLARE msg VARCHAR(255); IF NEW.quantity > 10 THEN SET msg := 'Error: you cannot order more than five products of this item.'; 
-SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg; 
-END IF; 
-END
-$$
-DELIMITER ;
+(21, 'Hand watch', 'Rolex.', '2016', 7, 2999, 'rolex.jpg', 'Rolex SA is a Swiss luxury watchmaker. The company and its subsidiary Montres Tudor SA design, manufacture, distribute and service wristwatches sold under the Rolex and Tudor brands. Founded by Hans Wilsdorf and Alfred Davis in London, Englan'),
+(25, 'sdads', 'sdads', 'sdasda', 2, 333, 'mybooks1.png', 'sdasd');
 
 -- --------------------------------------------------------
 
@@ -327,12 +278,12 @@ ALTER TABLE `shoppingcart`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
+  MODIFY `CustomerID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `LoginID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+  MODIFY `LoginID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 --
 -- AUTO_INCREMENT for table `orders`
 --
@@ -347,12 +298,12 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `postcodeinfo`
 --
 ALTER TABLE `postcodeinfo`
-  MODIFY `postcodeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=321;
+  MODIFY `postcodeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=326;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `salesrecords`
 --

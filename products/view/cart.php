@@ -127,7 +127,7 @@ function logout(){
 
                     ?>
                     <tr>
-                      <td> <div class="single_image" href="../images/<?php echo $result['Image']; ?>"><img src="../images/<?php echo $result['Image']; ?>"  alt="product image" width="100" height="50" ></div></td>
+                      <td> <div class="single_image" href="../images/<?php echo $result['Image']; ?>"><img src="../images/<?php echo $result['Image']; ?>"  width="100" height="50" ></div></td>
                       <td><a href="item.html"><?php echo $result['ProductName']  ?></a></td>
                       <td>$<?php echo $result['Price']  ?></td>
                       <td>
